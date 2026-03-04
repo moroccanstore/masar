@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a5f7a",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121c20",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display min-h-screen">
+<div class="layout-container flex flex-col h-full">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-white dark:bg-slate-900 border-b border-primary/10 px-4 md:px-10 py-3 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<div class="size-10 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">flight_takeoff</span>
+</div>
+<div>
+<h1 class="text-primary text-xl font-bold leading-tight tracking-tight">مسار فيزا (MasarVisa)</h1>
+<p class="text-xs text-slate-500">منصة خدمات التأشيرات الذكية</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex flex-col items-end gap-1 min-w-[200px]">
+<div class="flex justify-between w-full text-xs font-medium">
+<span class="text-primary">نسبة الإكمال</span>
+<span>40%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 40%;"></div>
+</div>
+</div>
+<div class="flex items-center gap-3 border-r border-slate-200 pr-6 mr-2">
+<button class="p-2 text-slate-600 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<div class="flex items-center gap-3">
+<div class="text-left hidden sm:block">
+<p class="text-sm font-bold">أحمد محمد</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider">حساب فضي</p>
+</div>
+<div class="size-10 rounded-full bg-primary/20 border-2 border-primary/30 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQvCBATpqsdWH74LChRUy2MIjUp-KFjIrOL8_euc7sVwDILTnL6nz8a_DCaeOlL4ZFQKkMFG-4wPB6kArcmoXvoRKQIr5zyfEHuuCwR-ZpAf4j1RUOeop-_NiGs8byzo20JZQKK9Z0vsuGz5t9btsFi8BkgrFI9XCz4_tQ8bOThe4OHjb-nMW9bl8XuOfynImeKhmGwLQRPlt2-Pb1jKKMjRBDS2BRhQzXnSfD2BIi0fHQpZ50OPLVaok5hxFuJFlNtSoJBo-SVmY"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden h-[calc(100vh-65px)]">
+<!-- Sidebar Navigation -->
+<aside class="w-72 bg-white dark:bg-slate-900 border-l border-primary/10 p-6 flex flex-col gap-6 overflow-y-auto">
+<div class="space-y-1">
+<h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest px-3 mb-4">خطوات الطلب</h3>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary text-white font-medium shadow-md shadow-primary/20" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>المعلومات الشخصية</span>
+<span class="mr-auto material-symbols-outlined text-sm">check_circle</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-primary/5 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>بيانات العائلة</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-primary/5 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">school</span>
+<span>السجل التعليمي</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-primary/5 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">work</span>
+<span>التاريخ المهني</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:bg-primary/5 hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">flight</span>
+<span>تاريخ السفر</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-4 rounded-2xl bg-primary/5 border border-primary/10">
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined text-xl">verified_user</span>
+<span class="font-bold text-sm">بيانات آمنة</span>
+</div>
+<p class="text-xs text-slate-500 leading-relaxed">
+                        نحن نستخدم تشفير AES-256 لحماية بياناتك الشخصية وضمان خصوصيتك.
+                    </p>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto bg-slate-50/50 dark:bg-background-dark p-6 lg:p-10">
+<div class="max-w-4xl mx-auto space-y-8">
+<!-- Section Header -->
+<div class="flex flex-col gap-2 border-b border-slate-200 pb-6">
+<h2 class="text-2xl font-bold text-slate-900">تعبئة استمارات التأشيرة - المعلومات الشخصية</h2>
+<p class="text-slate-500">الرجاء التأكد من مطابقة البيانات المدخلة مع وثيقة جواز السفر الرسمية.</p>
+</div>
+<!-- Common Mistakes Alert -->
+<div class="bg-amber-50 border border-amber-200 rounded-xl p-4 flex gap-4">
+<span class="material-symbols-outlined text-amber-600">warning</span>
+<div class="text-sm">
+<p class="font-bold text-amber-900 mb-1">أخطاء شائعة يجب تجنبها:</p>
+<ul class="list-disc list-inside text-amber-800 space-y-1">
+<li>كتابة الاسم باللغة العربية (يجب استخدامه كما هو في الجواز بالإنجليزية).</li>
+<li>تاريخ انتهاء الجواز يجب أن يكون صالحاً لـ 6 أشهر على الأقل.</li>
+</ul>
+</div>
+</div>
+<!-- Form Content -->
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="col-span-1 flex flex-col gap-2">
+<label class="flex items-center gap-1 text-sm font-semibold text-slate-700">
+                                الاسم الأول (بالإنجليزية)
+                                <span class="material-symbols-outlined text-slate-400 text-xs" title="أدخل الاسم الأول كما يظهر تماماً في جواز السفر">info</span>
+</label>
+<input class="w-full rounded-lg border-slate-300 focus:border-primary focus:ring-primary h-12" placeholder="First Name as in Passport" type="text"/>
+</div>
+<div class="col-span-1 flex flex-col gap-2">
+<label class="flex items-center gap-1 text-sm font-semibold text-slate-700">
+                                اسم العائلة (بالإنجليزية)
+                                <span class="material-symbols-outlined text-slate-400 text-xs">info</span>
+</label>
+<input class="w-full rounded-lg border-slate-300 focus:border-primary focus:ring-primary h-12" placeholder="Surname as in Passport" type="text"/>
+</div>
+<div class="col-span-1 flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700">تاريخ الميلاد</label>
+<input class="w-full rounded-lg border-slate-300 focus:border-primary focus:ring-primary h-12" type="date"/>
+</div>
+<div class="col-span-1 flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700">الجنسية الحالية</label>
+<select class="w-full rounded-lg border-slate-300 focus:border-primary focus:ring-primary h-12">
+<option>المملكة العربية السعودية</option>
+<option>الإمارات العربية المتحدة</option>
+<option>مصر</option>
+<option>الأردن</option>
+</select>
+</div>
+<div class="col-span-2 flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700">رقم جواز السفر</label>
+<input class="w-full rounded-lg border-slate-300 focus:border-primary focus:ring-primary h-12 uppercase" placeholder="مثال: G12345678" type="text"/>
+</div>
+<div class="col-span-2 p-6 bg-white border border-slate-200 rounded-xl shadow-sm">
+<div class="flex items-start gap-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-1">لماذا نحتاج هذه المعلومات؟</h4>
+<p class="text-sm text-slate-500 leading-relaxed">
+                                        تتطلب القنصلية مطابقة دقيقة للبيانات مع قاعدة بيانات الهجرة الوطنية لتجنب التأخير في إصدار التأشيرة.
+                                    </p>
+</div>
+</div>
+</div>
+</form>
+<!-- Form Footer Buttons -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-slate-200">
+<button class="w-full sm:w-auto px-8 py-3 rounded-lg border border-slate-300 text-slate-600 font-semibold hover:bg-slate-50 transition-colors">
+                            حفظ للمتابعة لاحقاً
+                        </button>
+<div class="flex w-full sm:w-auto gap-4">
+<button class="flex-1 sm:flex-none px-8 py-3 rounded-lg text-slate-400 font-semibold cursor-not-allowed">
+                                السابق
+                            </button>
+<button class="flex-1 sm:flex-none px-12 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                                التالي
+                                <span class="material-symbols-outlined">arrow_back</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- AI Assistant Sidebar -->
+<aside class="w-80 bg-white border-r border-primary/10 overflow-y-auto hidden xl:flex flex-col">
+<div class="p-6 bg-primary text-white">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined">psychology</span>
+<h3 class="font-bold">المساعد الذكي (AI)</h3>
+</div>
+<p class="text-xs text-white/80 leading-relaxed">
+                        أنا هنا لمساعدتك في تعبئة الاستمارة بشكل صحيح وفقاً للمتطلبات القانونية.
+                    </p>
+</div>
+<div class="p-6 space-y-6">
+<div class="bg-primary/5 p-4 rounded-xl border-r-4 border-primary">
+<h4 class="text-sm font-bold text-primary mb-2">نصيحة الحقل الحالي:</h4>
+<p class="text-xs text-slate-600 leading-relaxed">
+                            تأكد من كتابة الاسم كما هو في شريط الـ (MRZ) أسفل صفحة المعلومات في جواز السفر.
+                        </p>
+</div>
+<div class="space-y-4">
+<h4 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">contact_support</span>
+                            أسئلة شائعة
+                        </h4>
+<div class="space-y-3">
+<button class="w-full text-right text-xs p-3 rounded-lg border border-slate-200 text-slate-600 hover:border-primary transition-colors">
+                                ماذا أفعل إذا كان لدي اسم واحد فقط؟
+                            </button>
+<button class="w-full text-right text-xs p-3 rounded-lg border border-slate-200 text-slate-600 hover:border-primary transition-colors">
+                                كيف يتم إدخال التواريخ الهجرية؟
+                            </button>
+<button class="w-full text-right text-xs p-3 rounded-lg border border-slate-200 text-slate-600 hover:border-primary transition-colors">
+                                هل أحتاج لترجمة بياناتي للإنجليزية؟
+                            </button>
+</div>
+</div>
+<div class="mt-8 rounded-xl overflow-hidden border border-slate-200">
+<div class="aspect-video bg-slate-200 relative">
+<img class="w-full h-full object-cover" data-alt="Tutorial video for visa application" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh7xjmXxhFsJ7pKoMIJTbLWzXFWa4aMu2QE3Rn_fY_lyqECNHkjvfYhx2YleXfcbjI8WImcdr15FyScwxP7zv9f7En0cRDeXwH-CMz3slisZ77X7cUOKy16uEkzpSZNd1mz-FgV3O_frnXfBHG4UkY2Lm1le_2UaNwhlX6MvkFCM1ddgGa33ZfNVKze-wSoG1Nlbz75sJ4rni2QPYBdaWakYujXyAX08ZyOUDZLayH0rgrCxIaGwIRPrcvkIN9TPAZECmSBdvLmuc"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/30 group cursor-pointer">
+<div class="size-12 rounded-full bg-white/90 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="p-3 bg-white">
+<p class="text-[10px] font-bold text-slate-500 uppercase">فيديو تعليمي</p>
+<p class="text-xs font-semibold">شرح خطوة بخطوة للمعلومات الشخصية</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a5f7a",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121c20",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<!-- Header / Navigation -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10 px-6 lg:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3 text-primary">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg text-white">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight">MasarVisa</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">الرئيسية</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">خدماتنا</a>
+<a class="text-sm font-semibold text-primary border-b-2 border-primary pb-1" href="#">طلباتي</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#">المستندات</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center overflow-hidden border-2 border-primary/20">
+<img alt="صورة المستخدم" class="w-full h-full object-cover" data-alt="User profile avatar placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZUhjiww0cy5RaoGEJ1EfnYzy66oKs0TzEKGPl75bEOjYUYFR0PSEmra4zsxO7aWsBUkc_J8KUGA4pIavWJTtO9GgLdkA8hkj1vrdxdCEzZYn6jVpPGBQYqEobwghug_WESXqpNSTnc2OCT0p-Uk6-j_vK5cuDNGG_WZKHREJsts9L5P5XGl5_jbw9l381GcQYCN0E7lOakM9UVYzOln4YYf2_KBRXYg3kiUL2dK8MpDH_gCQEbqwR-cZscavelAlHNtZ0g2W3kiU"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-6 lg:px-20 py-10">
+<!-- Page Title and Status -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-slate-50 mb-2">مركز مراجعة المستندات</h2>
+<p class="text-slate-500 dark:text-slate-400 max-w-xl">تابع حالة مستنداتك وتواصل مع الخبراء القانونيين لضمان قبول طلبك بكل سهولة.</p>
+</div>
+<div class="bg-white dark:bg-slate-800/50 p-4 rounded-xl shadow-sm border border-primary/10 min-w-[300px]">
+<div class="flex justify-between items-center mb-2">
+<span class="text-sm font-bold text-primary">تقدم المراجعة</span>
+<span class="text-sm font-bold">65%</span>
+</div>
+<div class="w-full bg-primary/10 h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%] rounded-full"></div>
+</div>
+<div class="flex justify-between mt-3 text-[10px] text-slate-400 font-medium uppercase tracking-wider">
+<span>تم الرفع</span>
+<span class="text-primary">قيد المراجعة</span>
+<span>تم التحقق</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Upload and Document List -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Upload Section -->
+<section class="bg-white dark:bg-slate-800/40 rounded-xl border-2 border-dashed border-primary/20 p-8 flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined text-4xl">cloud_upload</span>
+</div>
+<h3 class="text-xl font-bold mb-2">رفع مستندات جديدة</h3>
+<p class="text-slate-500 dark:text-slate-400 mb-6 text-sm">اسحب وأفلت الملفات هنا أو اضغط للتصفح. (PDF, JPG, PNG)</p>
+<div class="flex flex-wrap justify-center gap-3 mb-4">
+<span class="px-3 py-1 bg-primary/5 text-primary text-xs rounded-full">جواز السفر</span>
+<span class="px-3 py-1 bg-primary/5 text-primary text-xs rounded-full">الشهادات الدراسية</span>
+<span class="px-3 py-1 bg-primary/5 text-primary text-xs rounded-full">خطابات الخبرة</span>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-8 py-2.5 rounded-lg font-bold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                        تصفح الملفات
+                    </button>
+</section>
+<!-- Document Table -->
+<section class="bg-white dark:bg-slate-800/30 rounded-xl shadow-sm border border-primary/10 overflow-hidden">
+<div class="px-6 py-4 border-b border-primary/10 flex items-center justify-between">
+<h3 class="font-bold text-lg">المستندات المرفوعة</h3>
+<button class="text-primary text-sm font-semibold flex items-center gap-1">
+                            تحديث القائمة <span class="material-symbols-outlined text-sm">refresh</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right border-collapse">
+<thead>
+<tr class="bg-primary/5 text-primary text-xs uppercase">
+<th class="px-6 py-3 font-bold">اسم المستند</th>
+<th class="px-6 py-3 font-bold">النوع</th>
+<th class="px-6 py-3 font-bold">تاريخ الرفع</th>
+<th class="px-6 py-3 font-bold">الحالة</th>
+<th class="px-6 py-3 font-bold text-center">الإجراءات</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5 text-sm">
+<tr>
+<td class="px-6 py-4 font-semibold text-slate-700 dark:text-slate-200">جواز_السفر_جديد.pdf</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">هوية وطنية</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">12 أكتوبر 2023</td>
+<td class="px-6 py-4">
+<span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">مقبول</span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">visibility</span></button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-slate-700 dark:text-slate-200">شهادة_البكالوريوس.jpg</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">تعليمي</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">15 أكتوبر 2023</td>
+<td class="px-6 py-4">
+<span class="bg-amber-100 text-amber-700 px-2 py-1 rounded text-xs font-bold">قيد المراجعة</span>
+</td>
+<td class="px-6 py-4 text-center text-slate-400">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">visibility</span></button>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 font-semibold text-slate-700 dark:text-slate-200">خبرة_عمل_سابقة.pdf</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">مهني</td>
+<td class="px-6 py-4 text-slate-500 dark:text-slate-400">18 أكتوبر 2023</td>
+<td class="px-6 py-4">
+<span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-bold">يحتاج تعديل</span>
+</td>
+<td class="px-6 py-4 text-center">
+<button class="text-red-500 hover:text-red-600 transition-colors"><span class="material-symbols-outlined">edit_square</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Right Column: Expert Feedback and CTA -->
+<div class="space-y-6">
+<!-- Expert Feedback Panel -->
+<aside class="bg-white dark:bg-slate-800/30 rounded-xl border border-primary/10 overflow-hidden">
+<div class="px-6 py-4 bg-primary text-white flex items-center gap-2">
+<span class="material-symbols-outlined">gavel</span>
+<h3 class="font-bold">ملاحظات الخبير القانوني</h3>
+</div>
+<div class="p-6 space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex-shrink-0 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div>
+<h4 class="font-bold text-sm">أ. محمد الأحمد</h4>
+<p class="text-[10px] text-slate-400">مستشار تأشيرات - قبل ساعتين</p>
+<p class="mt-2 text-sm text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 p-3 rounded-lg border-r-4 border-primary">
+                                    بخصوص "خبرة عمل سابقة"، يرجى التأكد من وجود الختم الرسمي للشركة وتاريخ البدء والانتهاء بوضوح.
+                                </p>
+</div>
+</div>
+<div class="flex gap-4 opacity-75">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex-shrink-0 flex items-center justify-center text-slate-500">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<h4 class="font-bold text-sm">النظام</h4>
+<p class="text-[10px] text-slate-400">تلقائي - منذ يوم</p>
+<p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                                    تم قبول "جواز السفر" بنجاح بعد التحقق من مطابقة البيانات.
+                                </p>
+</div>
+</div>
+</div>
+<div class="p-6 pt-0">
+<textarea class="w-full text-sm rounded-lg border-primary/10 bg-slate-50 dark:bg-slate-800 focus:ring-primary focus:border-primary" placeholder="اكتب استفسارك هنا للمستشار..." rows="3"></textarea>
+<button class="w-full mt-3 bg-primary text-white py-2 rounded-lg text-sm font-bold flex items-center justify-center gap-2">
+                            إرسال استفسار
+                            <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</aside>
+<!-- Call to Action Cards -->
+<div class="bg-primary/5 rounded-xl border border-primary/10 p-6">
+<h4 class="font-bold text-primary mb-2">تحتاج مساعدة إضافية؟</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">إذا واجهت صعوبة في توفير بعض المستندات، يمكنك حجز جلسة استشارية خاصة مع خبرائنا.</p>
+<button class="w-full bg-white dark:bg-slate-800 text-primary border border-primary py-2.5 rounded-lg text-sm font-bold hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">event</span>
+                        حجز جلسة استشارية
+                    </button>
+</div>
+<div class="bg-gradient-to-br from-primary to-[#2c8fb4] rounded-xl p-6 text-white relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-bold text-lg mb-2">الدليل الإرشادي</h4>
+<p class="text-xs text-white/80 mb-4">تعرف على المتطلبات القانونية لكل مستند لضمان القبول الفوري.</p>
+<a class="text-sm font-bold underline underline-offset-4 flex items-center gap-1" href="#">
+                            تحميل الدليل (PDF)
+                            <span class="material-symbols-outlined text-sm">download</span>
+</a>
+</div>
+<!-- Decorative Element -->
+<span class="material-symbols-outlined absolute -bottom-6 -right-6 text-8xl opacity-10">description</span>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-background-dark border-t border-primary/10 mt-16 py-10 px-6 lg:px-20 text-center">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-bold text-lg tracking-tight">MasarVisa</span>
+</div>
+<p class="text-slate-500 text-sm">© 2023 مسار فيزا. جميع الحقوق محفوظة لشركة الخدمات القانونية المتكاملة.</p>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">help</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">policy</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">support_agent</span></a>
+</div>
+</div>
+</footer>
+</body></html>

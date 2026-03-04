@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a5f7a",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121c20",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<!-- Header Section -->
+<header class="sticky top-0 z-50 bg-white dark:bg-background-dark border-b border-primary/10 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-4xl">travel_explore</span>
+<h1 class="text-2xl font-black text-primary tracking-tight">مسار فيزا</h1>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-700 dark:text-slate-200 font-medium hover:text-primary transition-colors" href="#">الرئيسية</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">الفنادق</a>
+<a class="text-slate-700 dark:text-slate-200 font-medium hover:text-primary transition-colors" href="#">التأشيرات</a>
+<a class="text-slate-700 dark:text-slate-200 font-medium hover:text-primary transition-colors" href="#">خدماتنا</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-lg text-primary font-bold hover:bg-primary/5 transition-all">
+<span class="material-symbols-outlined">login</span>
+                        تسجيل الدخول
+                    </button>
+<button class="bg-primary text-white px-6 py-2 rounded-lg font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                        إنشاء حساب
+                    </button>
+<div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 cursor-pointer">
+<span class="material-symbols-outlined text-primary">person</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero & Search Section -->
+<section class="relative bg-primary/5 py-16 overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-10">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-3xl -mr-48 -mt-48"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl -ml-48 -mb-48"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-12">
+<h2 class="text-4xl md:text-5xl font-black text-slate-900 dark:text-slate-100 mb-4">
+                    حجز فنادق مؤكد لاستخراج التأشيرة
+                </h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    احصل على حجز فندقي فوري ومقبول لدى جميع السفارات والقنصليات بضمان 100% وبدون مخاطر
+                </p>
+</div>
+<!-- Search Bar Component -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border border-primary/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+<div class="col-span-1">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">الوجهة</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-3.5 text-slate-400">location_on</span>
+<input class="w-full pr-11 py-3 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="إلى أين تريد الذهاب؟" type="text"/>
+</div>
+</div>
+<div class="col-span-1">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">التاريخ (من - إلى)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-3.5 text-slate-400">calendar_month</span>
+<input class="w-full pr-11 py-3 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="اختار التواريخ" type="text"/>
+</div>
+</div>
+<div class="col-span-1">
+<label class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">الضيوف والغرف</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-3.5 text-slate-400">group</span>
+<input class="w-full pr-11 py-3 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary" placeholder="2 ضيوف، 1 غرفة" type="text"/>
+</div>
+</div>
+<div class="col-span-1">
+<button class="w-full h-[54px] bg-primary text-white font-black rounded-lg text-lg flex items-center justify-center gap-2 hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined">search</span>
+                            ابحث عن الفنادق
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="py-16 bg-white dark:bg-background-dark">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex items-start gap-4 p-6 rounded-xl bg-primary/5 border border-primary/10">
+<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">قبول مضمون 100%</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">حجوزاتنا مقبولة لدى جميع السفارات والقنصليات حول العالم.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 rounded-xl bg-primary/5 border border-primary/10">
+<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">speed</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">تأكيد فوري</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">احصل على مستندات الحجز الخاصة بك فوراً عبر البريد الإلكتروني.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-6 rounded-xl bg-primary/5 border border-primary/10">
+<div class="flex-shrink-0 w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-2xl">payments</span>
+</div>
+<div>
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-1">دفع مرن</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400">خيارات دفع متعددة تشمل Cash Plus، التحويل البنكي، والبطاقات.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hotel Grid Section -->
+<section class="py-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between mb-10">
+<div>
+<h2 class="text-3xl font-black text-slate-900 dark:text-slate-100">فنادق موصى بها للتأشيرة</h2>
+<p class="text-slate-600 dark:text-slate-400 mt-1">فنادق متميزة توفر حجوزات قابلة للإلغاء ومثالية لملف التأشيرة</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:underline" href="#">
+                    مشاهدة الكل
+                    <span class="material-symbols-outlined">chevron_left</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Hotel Card 1 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Modern luxury hotel facade in Europe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB94qYtJ9wWhvBODWD-YMLIH-2bfKU6pjyTH9vkRv1XdeslXQwY5F_ikR3gQAf-ka3Sm4Cp1msivFyUhd7_A3OjKY6nMcnXMy_e1azCPUAfWYws9bX9f3JnZM0bp0IMR33BzaRmi_RgsUifE0DjnRKoHnVBFzHyF5yOBfkIWBjfhqn5Is9ezwzmLvvBTaHDvMt4z6Yt7HhciTHMeXWUTnWgmRRiQUMRwosETi2VEoTrT1zym0drzWAqZM88Zdslia6srxwRiUIO0wE"/>
+<div class="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded text-primary font-bold text-xs">
+                            ممتاز 4.8
+                        </div>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-1 mb-2 text-yellow-500">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 line-clamp-1">فندق ريتز كارلتون - باريس</h3>
+<div class="flex items-center gap-1 text-slate-500 text-sm mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+                            باريس، فرنسا
+                        </div>
+<div class="mt-4 flex items-center justify-between">
+<div>
+<span class="text-xs text-slate-500 block">سعر الحجز للتأشيرة</span>
+<span class="text-xl font-black text-primary">150 د.م</span>
+</div>
+<button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold">حجز للتأشيرة</button>
+</div>
+</div>
+</div>
+<!-- Hotel Card 2 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Classic hotel interior in Madrid city center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEUaqM7A2Akx-v9_rUmeXfkNCG_K4OLFMIjSL0mMbANTtbg98nPrZDxClBpA5Z39wKi7hVe0c8xzsu_qkQc14K-0cCHC_w6aOXUV1_obandZqZ8rDKuyfEet2fOwM2GEqXj17C30CQIm6hM5d51yPFzUPMFSiI8C5rErm_GaKw-HNEWFfpqlOuTvxrV2GGb-FJ4uQEuX7a2w671cm3vDgt-F6SVocYlyTQ7bwrLxdkcMfiRcBQlBYkueQKcVhatnDJji_iTnHGhb4"/>
+<div class="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded text-primary font-bold text-xs">
+                            جيد جداً 4.5
+                        </div>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-1 mb-2 text-yellow-500">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 line-clamp-1">فندق ماريوت أوديتوريوم</h3>
+<div class="flex items-center gap-1 text-slate-500 text-sm mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+                            مدريد، إسبانيا
+                        </div>
+<div class="mt-4 flex items-center justify-between">
+<div>
+<span class="text-xs text-slate-500 block">سعر الحجز للتأشيرة</span>
+<span class="text-xl font-black text-primary">120 د.م</span>
+</div>
+<button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold">حجز للتأشيرة</button>
+</div>
+</div>
+</div>
+<!-- Hotel Card 3 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Luxury resort with pool in Istanbul" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRq9jQK__HvP8H8H7NWtDnpi0zBfJwwLDOWmwzinbQNNzgWYi-v4ANpFqLwMIGhW5gCewDhLNJG2WPFtRQJD8o0NWQ9SbHIvtVW9sEHdAimCGWT0ywYasdzTBlcIOqsOYm9wkX_kxVC4vmpzRP6mvRsvyP6tB0kfhYpvfZXdOMy1pae7kyZu603ZKH25Wd4cw2QXTlMwgRV_XiUW87Z46BFfCKuFMNZKQoCgQMPt6nm7Bbz77gT2hqQRR462yjkORaYsJSlJkxS4g"/>
+<div class="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded text-primary font-bold text-xs">
+                            ممتاز 4.9
+                        </div>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-1 mb-2 text-yellow-500">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 line-clamp-1">هيلتون إسطنبول بوسفور</h3>
+<div class="flex items-center gap-1 text-slate-500 text-sm mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+                            إسطنبول، تركيا
+                        </div>
+<div class="mt-4 flex items-center justify-between">
+<div>
+<span class="text-xs text-slate-500 block">سعر الحجز للتأشيرة</span>
+<span class="text-xl font-black text-primary">140 د.م</span>
+</div>
+<button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold">حجز للتأشيرة</button>
+</div>
+</div>
+</div>
+<!-- Hotel Card 4 -->
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-slate-100 dark:border-slate-700">
+<div class="relative h-48">
+<img class="w-full h-full object-cover" data-alt="Boutique hotel entrance in Rome Italy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIK_EHHzq4HCFkAuY7qGGfPk8LCALOtnzqstOusc6zGDHXvCmfs5JLjfwEpoHqk8R3CdOzYwLbfcr3eu4veVXdc2Hpzu2bmSd3TIbT8JntkFY8cd_BJYCbxcMGBn7yLDk6ApLsWc30ow7S5iOSMiOXcuS7fm5qFlTwheFYAyjRspZAcqLG-f15T4A8cOZVHkX7Iq-QzH_8sw5tJz4ULYacXojIzcJ_iIjcmk_OJnzQy_FGPCQqGkqcI6HxLsasufjUiVG0DVdFiTQ"/>
+<div class="absolute top-3 left-3 bg-white/90 px-2 py-1 rounded text-primary font-bold text-xs">
+                            جيد 4.2
+                        </div>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-1 mb-2 text-yellow-500">
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+<span class="material-symbols-outlined text-sm">star</span>
+</div>
+<h3 class="font-bold text-lg text-slate-900 dark:text-slate-100 line-clamp-1">فندق روما سنترال</h3>
+<div class="flex items-center gap-1 text-slate-500 text-sm mt-1">
+<span class="material-symbols-outlined text-base">location_on</span>
+                            روما، إيطاليا
+                        </div>
+<div class="mt-4 flex items-center justify-between">
+<div>
+<span class="text-xs text-slate-500 block">سعر الحجز للتأشيرة</span>
+<span class="text-xl font-black text-primary">110 د.م</span>
+</div>
+<button class="bg-primary text-white px-3 py-2 rounded-lg text-sm font-bold">حجز للتأشيرة</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Signals Section -->
+<section class="py-12 bg-slate-100 dark:bg-slate-800/50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">verified</span>
+<span class="text-lg font-bold">موثق من السفارات</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">shield_locked</span>
+<span class="text-lg font-bold">دفع آمن 100%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+<span class="text-lg font-bold">دعم فني 24/7</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl">handshake</span>
+<span class="text-lg font-bold">شركاء معتمدون</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-900 text-white pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">travel_explore</span>
+<h2 class="text-2xl font-black tracking-tight">مسار فيزا</h2>
+</div>
+<p class="text-slate-400 leading-relaxed">
+                        منصتك الأولى في المغرب للحصول على حجوزات الفنادق المؤكدة والخدمات اللوجستية لطلب التأشيرة بكل سهولة وأمان.
+                    </p>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">روابط سريعة</h3>
+<ul class="space-y-4 text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">عن مسار فيزا</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">الأسئلة الشائعة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">سياسة الخصوصية</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">اتصل بنا</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">خدماتنا</h3>
+<ul class="space-y-4 text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">حجز فنادق للتأشيرة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">تأمين طبي للسفر</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">حجز طيران مبدئي</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">مراجعة الملف</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-lg font-bold mb-6">تواصل معنا</h3>
+<div class="space-y-4 text-slate-400">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">call</span>
+<span>+212 5XX XX XX XX</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span>contact@masarvisa.ma</span>
+</div>
+<div class="flex gap-4 mt-6">
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+<p>© 2024 مسار فيزا. جميع الحقوق محفوظة.</p>
+</div>
+</div>
+</footer>
+</body></html>

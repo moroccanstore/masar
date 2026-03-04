@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// NOTE: pgvector embeddings for Articles will be added via raw SQL migration:
+// ALTER TABLE "Article" ADD COLUMN embedding vector(1536);
+// CREATE INDEX ON "Article" USING ivfflat (embedding vector_cosine_ops);
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Article {
+  id              String    @id @default(cuid())
+  title           String
+  slug            String    @unique
+  content         String    @db.Text
+  metaTitle       String?
+  metaDescription String?
+  imageUrl        String?
+  publishedAt     DateTime  @default(now())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+enum PaymentMethod {
+  CASH_PLUS
+  WESTERN_UNION
+  RIA
+}
+
+enum RequestStatus {
+  PENDING
+  PAID
+  COMPLETED
+}
+
+model ServiceRequest {
+  id            String        @id @default(cuid())
+  customerName  String
+  phone         String
+  serviceType   String
+  paymentMethod PaymentMethod
+  status        RequestStatus @default(PENDING)
+  createdAt     DateTime      @default(now())
+}

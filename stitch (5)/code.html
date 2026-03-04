@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a5f7a",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121c20",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Public Sans", "Noto Sans Arabic", sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-10 py-3 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-primary">
+<div class="size-8">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236ZM4.95178 15.2312L21.4543 41.6973C22.6288 43.5809 25.3712 43.5809 26.5457 41.6973L43.0534 15.223C43.0709 15.1948 43.0878 15.1662 43.104 15.1371L41.3563 14.1648C43.104 15.1371 43.1038 15.1374 43.104 15.1371L43.1051 15.135L43.1065 15.1325L43.1101 15.1261L43.1199 15.1082C43.1276 15.094 43.1377 15.0754 43.1497 15.0527C43.1738 15.0075 43.2062 14.9455 43.244 14.8701C43.319 14.7208 43.4196 14.511 43.5217 14.2683C43.6901 13.8679 44 13.0689 44 12.2609C44 10.5573 43.003 9.22254 41.8558 8.2791C40.6947 7.32427 39.1354 6.55361 37.385 5.94477C33.8654 4.72057 29.133 4 24 4C18.867 4 14.1346 4.72057 10.615 5.94478C8.86463 6.55361 7.30529 7.32428 6.14419 8.27911C4.99695 9.22255 3.99999 10.5573 3.99999 12.2609C3.99999 13.1275 4.29264 13.9078 4.49321 14.3607C4.60375 14.6102 4.71348 14.8196 4.79687 14.9689C4.83898 15.0444 4.87547 15.1065 4.9035 15.1529C4.91754 15.1762 4.92954 15.1957 4.93916 15.2111L4.94662 15.223L4.95178 15.2312ZM35.9868 18.996L24 38.22L12.0131 18.996C12.4661 19.1391 12.9179 19.2658 13.3617 19.3718C16.4281 20.1039 20.0901 20.5217 24 20.5217C27.9099 20.5217 31.5719 20.1039 34.6383 19.3718C35.082 19.2658 35.5339 19.1391 35.9868 18.996Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 dark:text-white text-xl font-bold leading-tight tracking-tight">مسار فيزا</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">الرئيسية</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">خدماتنا</a>
+<a class="text-primary text-sm font-bold border-b-2 border-primary" href="#">التأمين</a>
+<a class="text-slate-700 dark:text-slate-300 text-sm font-medium hover:text-primary transition-colors" href="#">تواصل معنا</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex min-w-[100px] items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-all">
+                            تسجيل الدخول
+                        </button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<div class="px-4 md:px-20 lg:px-40 py-10">
+<div class="relative min-h-[500px] flex flex-col items-center justify-center overflow-hidden rounded-xl bg-slate-900 p-8 text-center" data-alt="Modern airplane flying through blue sky with clouds" style='background-image: linear-gradient(rgba(26, 95, 122, 0.8), rgba(0, 0, 0, 0.7)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuCVHdXf15mfqVX2XcYstdjaOGTQqcPvjptdPyZrOf-sW6gyXiv0N_jlOniLGMllGk5lJTzeRUrWpNe4BVF9LDfsvYuKcCpH01QUYSebc5AtICixc9yaVKGylOkMYCP7OIz4-qqQAsHcXw5fcvhh4Yun-PZcXP8TzYFGp5epjqjlxQfv8C_BJy4U71eSJovPTEWOY1PJRJcDoci2qX5iKpgGxaSCoIVLjZcATzmP42FVbZgQl6VtIqyTDgeFH9P6UBn6pifnRaRvXFs"); background-size: cover; background-position: center;'>
+<div class="z-10 max-w-3xl space-y-6">
+<span class="inline-flex items-center gap-2 bg-primary/30 text-white px-4 py-1.5 rounded-full text-sm font-bold border border-white/20">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+                                مقبول لدى جميع السفارات
+                            </span>
+<h1 class="text-white text-4xl md:text-6xl font-black leading-tight">
+                                تأمين سفر شامل وموثوق <br/> لرحلتك القادمة
+                            </h1>
+<p class="text-slate-100 text-lg md:text-xl font-normal max-w-2xl mx-auto">
+                                احصل على وثيقة التأمين فوراً وسافر بكل طمأنينة مع تغطية شاملة لكافة احتياجاتك الطبية والطارئة في أي مكان في العالم.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Search/Quote Form -->
+<div class="px-4 md:px-20 lg:px-40 -mt-24 relative z-20 pb-12">
+<div class="bg-white dark:bg-slate-900 shadow-2xl rounded-xl p-8 border border-slate-200 dark:border-slate-800">
+<h3 class="text-slate-900 dark:text-white text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">search</span>
+                            استعلام عن سعر التأمين
+                        </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">وجهة السفر</label>
+<div class="relative">
+<select class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 text-slate-900 dark:text-white h-12 pr-10 focus:ring-primary focus:border-primary">
+<option>اختر الوجهة (شنغن، عالمي...)</option>
+<option>منطقة الشنغن</option>
+<option>تركيا</option>
+<option>السعودية (عمرة/حج)</option>
+<option>جميع أنحاء العالم</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">public</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">تاريخ الذهاب</label>
+<div class="relative">
+<input class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 text-slate-900 dark:text-white h-12 pr-10 focus:ring-primary focus:border-primary" type="date"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">calendar_today</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">عدد المسافرين</label>
+<div class="relative">
+<select class="form-input w-full rounded-lg border-slate-300 dark:border-slate-700 dark:bg-slate-800 text-slate-900 dark:text-white h-12 pr-10 focus:ring-primary focus:border-primary">
+<option>1 مسافر</option>
+<option>2 مسافرين</option>
+<option>عائلة (4+ أشخاص)</option>
+<option>مجموعة</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">group</span>
+</div>
+</div>
+<div class="flex items-end">
+<button class="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-lg transition-all shadow-lg flex items-center justify-center gap-2">
+                                    احصل على عرض سعر
+                                    <span class="material-symbols-outlined">trending_flat</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Insurance Plans -->
+<section class="px-4 md:px-20 lg:px-40 py-16 bg-white dark:bg-background-dark">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white mb-4">باقات التأمين المتاحة</h2>
+<p class="text-slate-600 dark:text-slate-400">اختر الباقة التي تناسب ميزانيتك واحتياجاتك للسفر</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Basic Plan -->
+<div class="border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+<div class="p-6 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">الباقة الأساسية</h3>
+<p class="text-sm text-slate-500">مثالية للرحلات القصيرة</p>
+</div>
+<div class="p-6 flex-1 space-y-4">
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        تغطية طبية حتى 30,000 يورو
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        مقبول لدى سفارات الشنغن
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        تغطية الحالات الطارئة
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-400 line-through">
+<span class="material-symbols-outlined text-lg">cancel</span>
+                                        تغطية COVID-19
+                                    </li>
+</ul>
+</div>
+<div class="p-6 pt-0 mt-auto">
+<button class="w-full py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all">اختر الباقة</button>
+</div>
+</div>
+<!-- Standard Plan (Featured) -->
+<div class="border-2 border-primary rounded-xl overflow-hidden shadow-2xl transform md:-translate-y-4 bg-white dark:bg-slate-900 flex flex-col">
+<div class="bg-primary p-2 text-center text-white text-xs font-bold uppercase tracking-widest">الأكثر طلباً</div>
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">الباقة القياسية</h3>
+<p class="text-sm text-slate-500">التوازن المثالي بين السعر والتغطية</p>
+</div>
+<div class="p-6 flex-1 space-y-4">
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        تغطية طبية حتى 50,000 يورو
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        تغطية COVID-19 شاملة
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        فقدان الأمتعة وتأخر الرحلات
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        الإعادة الطبية إلى الوطن
+                                    </li>
+</ul>
+</div>
+<div class="p-6 pt-0 mt-auto">
+<button class="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all shadow-lg">اختر الباقة</button>
+</div>
+</div>
+<!-- Premium Plan -->
+<div class="border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+<div class="p-6 bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">الباقة المميزة</h3>
+<p class="text-sm text-slate-500">حماية قصوى بدون قلق</p>
+</div>
+<div class="p-6 flex-1 space-y-4">
+<ul class="space-y-3">
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        تغطية غير محدودة تقريباً (100k+)
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        إلغاء الرحلة لأسباب قهرية
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        المساعدة القانونية في الخارج
+                                    </li>
+<li class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                        دعم VIP على مدار الساعة
+                                    </li>
+</ul>
+</div>
+<div class="p-6 pt-0 mt-auto">
+<button class="w-full py-3 border-2 border-primary text-primary font-bold rounded-lg hover:bg-primary hover:text-white transition-all">اختر الباقة</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="px-4 md:px-20 lg:px-40 py-16 bg-slate-50 dark:bg-slate-900/30">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white">لماذا تختار تأمين مسار فيزا؟</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="flex gap-4">
+<div class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">إصدار فوري</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">احصل على وثيقتك بصيغة PDF عبر البريد الإلكتروني في دقائق.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">دعم 24/7</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">فريقنا متاح دائماً لمساعدتك في أي حالة طارئة أثناء سفرك.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">دفع سهل وآمن</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">ادفع عبر Cash Plus، بطاقة بنكية، أو تحويل مباشر بكل سهولة.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="size-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-1">موثوقية السفارات</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">وثائقنا معتمدة ومقبولة لدى جميع قنصليات الشنغن والعالم.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square rounded-2xl bg-slate-200 dark:bg-slate-800 overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Business traveler looking at documents with confidence" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWCLFsAhCaR8VBpufTAFxF81ah3ylgf_wzs3D0QUMepHQIG9ARY_vrabYnAFm-0D7q0p95SJRq_A8cIK4pyrbSPBmG_TtZkSxEjfD9XcxD0L9wtG3QPuZTegvzJE9twUpJChvk8eSlWYQLy8x4P2meKUwwZfRBcKrN8V6yLrbkgLjaWCxUrprDqUAASoVyIg2JSK2nYNQ3Pke2L_sgqD-ijH4a6ioj9L2MdmZpD8GdqM-1GhgT_xorINqAYU62-_p89KPZQ_MMvFw"/>
+</div>
+<div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-900 p-6 rounded-xl shadow-xl border border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-green-500 flex items-center justify-center text-white">
+<span class="material-symbols-outlined">task_alt</span>
+</div>
+<div>
+<p class="text-xs text-slate-500">تم إصدار أكثر من</p>
+<p class="text-lg font-black text-slate-900 dark:text-white">50,000+ وثيقة</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partners Logos -->
+<section class="px-4 md:px-20 lg:px-40 py-12 bg-white dark:bg-background-dark border-y border-slate-100 dark:border-slate-800">
+<p class="text-center text-sm font-bold text-slate-400 mb-8 uppercase tracking-widest">شركاؤنا في النجاح</p>
+<div class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+<img class="h-10 object-contain" data-alt="AXA Insurance Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiNk_bGh1gdnrR8crMDgG2XvwF2pN4bs2RvMR5aJU1tIGXqBrNKtomcx956hVuffsl_rHPqMNhTKsQZnyeJmwjsNwvmdPDzhui1npszNp9n1KrNO7_Snnz-02BZ-v7eoKnYggGvCnmhCFKYyrNDEvXs-VsyefY-AUTgdXmBgh89zNqW6NZdL57VIMmhLz482pYhJtclLc1CUT2e1IsCLqo2Qqb5WZGnvIfRI1anxtdFgJBagC2UVlF5uzSx7-UQWZtB5_u9uhd4bg"/>
+<img class="h-10 object-contain" data-alt="Allianz Insurance Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzWLzOhYutF9TIlzeRR1DLqAeuiUuK-ehPP-V0VffuYMQkRxRDyWOeRLqNOjQhlv70o1nW8_gDhoUCRS1ILhzQ_SS9t9pSDfGPcL5UeZOsskBzAt6V9P-FlkP5nipDAuX0iG9MArGBy_cllpD9PBFY3-W6K4n7d5FoRSfXa5QOY-1UDoERPNyMgxXHFa_RA_cyjgmDfN68ju50Lyd4J346DEqdPSPwvelyQsJ4VHJFC_1YOOt9gyANv-cDmAr6eSZIunmk-V7q5lY"/>
+<img class="h-10 object-contain" data-alt="Generali Insurance Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0y-gvIV40elg-hG_0n6IV6RsjT53R2kB3RkaFVH8WEKzDoHa3VUBgybKDo1i1J9hzYbyu8hzZfpii6fzGpcn4sf-E6PV2tkzhQHX0ckUEzXEwcbfUqJ4IeXdNwzzSfpthk3m0LJIpKVFCCtqu15fRS64M-4SWCqoXunEqM6mc-WeZtyfvomKN5DxWcB1sePsrjQzyUctQUlGN8DXhEa9XsEIKw9uDyK_cVjzc1YJDJe1KRQ2QjqdRync1rfsKyHZHbABi8VU2Vf0"/>
+<img class="h-10 object-contain" data-alt="AIG Insurance Logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKzbz7wrYGbds8Ct0230H9bl38xJ9OHci0v1Qt7DSU7Ctu4hmyFjunlzft51vnwP90D13_c983FE-KjDnuoFV7KQVhXb3NDRAwCtuuCTwSNSFjDaPfVYOMz5lJSAjhsXMaydrDuy11i5nlyO7JonVCnZb-8EGG-e7ybPXDsdOdTpFmz6f1uvrEb2D5BGdD0oTzF0bVZfYtg_1KKS1tY8nbY3bIu5m9LpUe4dNBdTYcHhuzcFasKxvBU_uxz3X7xLIFUkd17itiCm8"/>
+<div class="flex items-center gap-2 font-black text-slate-400 text-xl">CASH PLUS</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="px-4 md:px-20 lg:px-40 py-16">
+<h2 class="text-3xl font-black text-slate-900 dark:text-white text-center mb-12">الأسئلة الشائعة</h2>
+<div class="max-w-3xl mx-auto space-y-4">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">هل هذا التأمين مقبول لفيزا الشنغن؟</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">نعم، جميع وثائقنا مصممة لتتوافق مع معايير سفارات منطقة الشنغن وتوفر الحد الأدنى من التغطية المطلوبة (30,000 يورو).</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">كيف سأستلم وثيقة التأمين؟</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">ستصلك الوثيقة مباشرة على بريدك الإلكتروني والواتساب بعد إتمام عملية الدفع بنجاح.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-white px-4 md:px-20 lg:px-40 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="size-8 bg-white/10 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-white">flight_takeoff</span>
+</div>
+<h2 class="text-xl font-bold">مسار فيزا</h2>
+</div>
+<p class="text-slate-400 text-sm leading-relaxed">
+                            رفيقك الأمثل لجميع خدمات الفيزا والسفر. نوفر لك حلولاً متكاملة لتسهيل إجراءات سفرك حول العالم.
+                        </p>
+</div>
+<div>
+<h4 class="font-bold mb-6">روابط سريعة</h4>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">عن الشركة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">خدمات الفيزا</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">تأمين السفر</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">الشروط والأحكام</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">تواصل معنا</h4>
+<ul class="space-y-4 text-slate-400 text-sm">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">call</span>
+                                +212 5XX XX XX XX
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">mail</span>
+                                contact@masarvisa.com
+                            </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg">location_on</span>
+                                الدار البيضاء، المغرب
+                            </li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6">اشترك في النشرة</h4>
+<div class="flex gap-2">
+<input class="bg-white/5 border-white/10 rounded-lg flex-1 text-sm h-11 px-4 focus:ring-primary focus:border-primary" placeholder="بريدك الإلكتروني" type="email"/>
+<button class="bg-primary px-4 rounded-lg hover:bg-primary/90 transition-all">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+<div class="flex gap-4 mt-8">
+<a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">public</span>
+</a>
+<a class="size-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-primary transition-all" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-white/10 mt-12 pt-8 text-center text-slate-500 text-sm">
+                    © 2024 مسار فيزا - جميع الحقوق محفوظة
+                </div>
+</footer>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1a5f7a",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#121c20",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<!-- Header Navigation -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl">flight_takeoff</span>
+<h2 class="text-xl font-bold tracking-tight">مسار فيزا</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">الرئيسية</a>
+<a class="text-sm font-medium text-primary border-b-2 border-primary pb-1" href="#">حجز الطيران</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">تأشيراتنا</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">تأمين السفر</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<button class="bg-primary text-white px-5 py-2 rounded-lg text-sm font-bold">تسجيل الدخول</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero & Search Section -->
+<section class="relative py-12 px-4 overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 -z-10"></div>
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-10">
+<h1 class="text-3xl md:text-4xl font-bold mb-4">احجز رحلتك القادمة بكل سهولة</h1>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">نقدم لك حلول حجز الطيران المتكاملة، سواء كنت بحاجة لحجز مبدئي لغرض التأشيرة أو حجز مؤكد للسفر الفعلي.</p>
+</div>
+<!-- Search Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border border-primary/5">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-primary px-1 uppercase">من أين؟</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">location_on</span>
+<input class="w-full pr-10 pl-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="مدينة المغادرة" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-primary px-1 uppercase">إلى أين؟</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">flight_land</span>
+<input class="w-full pr-10 pl-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" placeholder="وجهة الوصول" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-primary px-1 uppercase">التاريخ</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">calendar_today</span>
+<input class="w-full pr-10 pl-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" type="date"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold text-primary px-1 uppercase">المسافرون</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">group</span>
+<select class="w-full pr-10 pl-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all appearance-none">
+<option>1 مسافر، سياحية</option>
+<option>2 مسافرين، سياحية</option>
+<option>3+ مسافرين، سياحية</option>
+<option>درجة الأعمال</option>
+</select>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-center">
+<button class="bg-primary text-white px-12 py-3 rounded-lg font-bold text-lg hover:shadow-lg transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">search</span>
+                            بحث عن الرحلات
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Service Options -->
+<section class="py-16 px-4">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Option 1: Visa Flight -->
+<div class="group bg-white dark:bg-slate-800 p-8 rounded-xl border-2 border-primary/10 hover:border-primary transition-all relative overflow-hidden">
+<div class="absolute top-0 left-0 bg-primary/10 text-primary px-4 py-1 rounded-br-lg text-sm font-bold">الأكثر طلباً للتأشيرة</div>
+<div class="flex items-start gap-4 mb-6">
+<div class="bg-primary/10 p-3 rounded-xl text-primary">
+<span class="material-symbols-outlined text-4xl">description</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-2">حجز طيران مبدئي للتأشيرة</h3>
+<p class="text-slate-600 dark:text-slate-400">حجز حقيقي مؤقت مقبول من جميع القنصليات والسفارات لأغراض استخراج الفيزا.</p>
+</div>
+</div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                مقبول لدى الشنغن، أمريكا، وبريطانيا
+                            </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                رقم مرجعي (PNR) قابل للتحقق من موقع شركة الطيران
+                            </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                لا يتطلب دفع ثمن التذكرة بالكامل
+                            </li>
+</ul>
+<button class="w-full py-4 rounded-lg border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-all">احجز للتأشيرة الآن</button>
+</div>
+<!-- Option 2: Confirmed Flight -->
+<div class="bg-white dark:bg-slate-800 p-8 rounded-xl border-2 border-slate-100 dark:border-slate-700 hover:border-primary transition-all">
+<div class="flex items-start gap-4 mb-6">
+<div class="bg-slate-100 dark:bg-slate-900 p-3 rounded-xl text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-4xl">confirmation_number</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-2">حجز طيران مؤكد للسفر</h3>
+<p class="text-slate-600 dark:text-slate-400">إصدار فوري لتذاكر الطيران بأفضل الأسعار المتاحة لجميع الوجهات العالمية.</p>
+</div>
+</div>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                تأكيد فوري وإرسال التذكرة عبر البريد
+                            </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                إمكانية اختيار المقاعد والوجبات
+                            </li>
+<li class="flex items-center gap-2 text-sm">
+<span class="material-symbols-outlined text-green-500 text-lg">check_circle</span>
+                                دعم فني متكامل على مدار الساعة
+                            </li>
+</ul>
+<button class="w-full py-4 rounded-lg bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-bold hover:bg-primary hover:text-white transition-all">ابحث عن تذاكر سفر</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us / Benefits -->
+<section class="py-16 bg-white dark:bg-background-dark border-y border-primary/10">
+<div class="max-w-7xl mx-auto px-4">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-bold mb-4">لماذا تختار "مسار فيزا" لحجز رحلتك؟</h2>
+<div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="text-center p-6">
+<div class="size-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h4 class="text-xl font-bold mb-2">سرعة الإنجاز</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">احصل على حجزك المبدئي خلال أقل من 15 دقيقة عبر بريدك الإلكتروني أو الواتساب.</p>
+</div>
+<div class="text-center p-6">
+<div class="size-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+<span class="material-symbols-outlined text-3xl">verified_user</span>
+</div>
+<h4 class="text-xl font-bold mb-2">موثوقية تامة</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">جميع حجوزاتنا المبدئية حقيقية وتظهر في أنظمة شركات الطيران (GDS) بشكل رسمي.</p>
+</div>
+<div class="text-center p-6">
+<div class="size-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+<h4 class="text-xl font-bold mb-2">مرونة الدفع</h4>
+<p class="text-slate-600 dark:text-slate-400 text-sm">ندعم كافة وسائل الدفع المحلية والعالمية بما فيها كاش بلوس ووفا كاش والبطاقات البنكية.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Signals / Partners -->
+<section class="py-12 px-4 bg-background-light dark:bg-slate-900/50">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
+<div class="flex flex-wrap justify-center gap-12 items-center">
+<span class="text-xl font-bold text-slate-400">Royal Air Maroc</span>
+<span class="text-xl font-bold text-slate-400">Emirates</span>
+<span class="text-xl font-bold text-slate-400">Air France</span>
+<span class="text-xl font-bold text-slate-400">Qatar Airways</span>
+<span class="text-xl font-bold text-slate-400">Lufthansa</span>
+</div>
+<div class="flex items-center gap-6 border-r md:pr-8 border-slate-300 dark:border-slate-700">
+<img alt="Cash Plus Logo" class="h-8" data-alt="Cash Plus payment partner logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYVVAfScLEHJtzS8vWm-88sYff41zZAE-UpBEJiYMKq6ES9E7sKSGQot3rlsGIoqEGFMQsta0FkC7K8LQdnnHui3nDyqO5EXtHwkRJ92deZp92LtWnQGi-_OxyDQFq5LZvnYe8Ncn0fNkVcoLXTxg9WJh3lXo-wP5X-URyK56lYAaWJNLQ9RQ0wFsfHy56VnE30SrfTPdQlQ9RzkoTROBtDBjGeKOUZv_yYCyZpGRh2qDCMJGQg9YJ75mnrslBqmgs7Sdc1n80jtE"/>
+<img alt="Visa Mastercard Logo" class="h-8" data-alt="Visa and Mastercard logos" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh-aNssEn3GV5SkqykTqjQ5f-DQtkeGHpdD17KTcuNDVnJYzK1CMsJCYUdkCEN4pY9Qja-2_rWGAnDZVbDOMGwYCcxp8rrCuZfwTYyUJ1eCKm-d0u5xH9udYKGUNFbK-p-ToZGAxekfBMj_8VF1I3cxw21inv3-NhV1M6yuBbMCnY7u1xn8VAwb9am6TMFgYhy7eAlcF5SuWWcvX5Sq_PWFVTS7RmZXd8QksMCoDSFbjY83YrLj9y30Vp4PfrQypzXsQ4g5lhl7-I"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-16 px-4">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-white mb-6">
+<span class="material-symbols-outlined text-3xl">flight_takeoff</span>
+<h2 class="text-xl font-bold">مسار فيزا</h2>
+</div>
+<p class="text-sm leading-relaxed">بوابتكم الموثوقة لتسهيل إجراءات السفر والتأشيرات. نحن نجمع بين الخبرة القانونية والتقنية لضمان رحلة ناجحة.</p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">خدماتنا</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">حجز طيران للتأشيرة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">تأمين صحي للسفر</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">حجز فندق مؤكد</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">تعبئة استمارات الشنغن</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">روابط سريعة</h4>
+<ul class="space-y-3 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">الأسئلة الشائعة</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">سياسة الخصوصية</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">الشروط والأحكام</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">تواصل معنا</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">تواصل معنا</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">mail</span>
+<span class="text-sm">support@masarvisa.com</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">call</span>
+<span class="text-sm" dir="ltr">+212 5XX XX XX XX</span>
+</div>
+<div class="flex gap-4 mt-6">
+<a class="size-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+<a class="size-8 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-800 text-center text-xs">
+<p>© 2024 مسار فيزا - جميع الحقوق محفوظة</p>
+</div>
+</footer>
+</body></html>
