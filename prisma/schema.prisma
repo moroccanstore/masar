@@ -1,10 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// NOTE: pgvector embeddings for Articles will be added via raw SQL migration:
-// ALTER TABLE "Article" ADD COLUMN embedding vector(1536);
-// CREATE INDEX ON "Article" USING ivfflat (embedding vector_cosine_ops);
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -18,34 +11,19 @@ model Article {
   id              String    @id @default(cuid())
   title           String
   slug            String    @unique
-  content         String    @db.Text
+  content         String
   metaTitle       String?
   metaDescription String?
   imageUrl        String?
   publishedAt     DateTime  @default(now())
-  
-  // Relations
   countryId       String?
-  country         Country?  @relation(fields: [countryId], references: [id])
   visaTypeId      String?
-  visaType        VisaType? @relation(fields: [visaTypeId], references: [id])
-  
-  keywords        String[]  // New: for SEO internal linking
-  readingTime     Int?      // New: Reading time in minutes
+  keywords        String[]
+  readingTime     Int?
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
-}
-
-enum PaymentMethod {
-  CASH_PLUS
-  WESTERN_UNION
-  RIA
-}
-
-enum RequestStatus {
-  PENDING
-  PAID
-  COMPLETED
+  country         Country?  @relation(fields: [countryId], references: [id])
+  visaType        VisaType? @relation(fields: [visaTypeId], references: [id])
 }
 
 model ServiceRequest {
@@ -59,17 +37,82 @@ model ServiceRequest {
 }
 
 model Country {
-  id          String    @id @default(cuid())
-  name        String    // e.g., "ألمانيا", "فرنسا"
-  slug        String    @unique // e.g., "germany"
-  flag        String?   // emoji or URL
-  continent   String?   // e.g., "Europe"
-  articles    Article[]
+  id        String    @id @default(cuid())
+  name      String
+  slug      String    @unique
+  flag      String?
+  continent String?
+  articles  Article[]
 }
 
 model VisaType {
-  id          String    @id @default(cuid())
-  name        String    // e.g., "Work Visa", "Student Visa"
-  slug        String    @unique
-  articles    Article[]
+  id       String    @id @default(cuid())
+  name     String
+  slug     String    @unique
+  articles Article[]
+}
+
+model article_drafts {
+  id              Int                    @id @default(autoincrement())
+  structured_id   Int?
+  title           String?
+  slug            String?                @unique
+  markdown_body   String?
+  metaDescription String?                @map("faqs")
+  cover_image     String?
+  embedding       Unsupported("vector")?
+  internal_links  Json?
+  seo_ready       Boolean?               @default(false)
+  published       Boolean?               @default(false)
+  publishedAt     DateTime?              @default(now())
+  processed       Boolean?               @default(false)
+  structured_news structured_news?       @relation(fields: [structured_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([embedding], map: "article_embedding_idx")
+}
+
+model articles_ready {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title      String?
+  content    String?
+  image_url  String?
+  category   String?
+  published  Boolean?  @default(false)
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model raw_news {
+  id              Int               @id @default(autoincrement())
+  title           String?
+  content         String?
+  source_url      String?           @unique
+  processed       Boolean?          @default(false)
+  created_at      DateTime?         @default(now()) @db.Timestamp(6)
+  structured_news structured_news[]
+
+  @@index([processed], map: "idx_raw_news_processed")
+}
+
+model structured_news {
+  id             Int              @id @default(autoincrement())
+  raw_id         Int?
+  title          String?
+  visa_type      String?          @db.VarChar(50)
+  processed      Boolean?         @default(false)
+  article_drafts article_drafts[]
+  raw_news       raw_news?        @relation(fields: [raw_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([processed], map: "idx_structured_news_processed")
+}
+
+enum PaymentMethod {
+  CASH_PLUS
+  WESTERN_UNION
+  RIA
+}
+
+enum RequestStatus {
+  PENDING
+  PAID
+  COMPLETED
 }
