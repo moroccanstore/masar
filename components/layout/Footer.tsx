@@ -4,9 +4,9 @@ import Link from 'next/link'
 
 const quickLinks = [
     { label: 'عن الشركة', href: '/about' },
+    { label: 'الوجهات والدول', href: '/countries' },
+    { label: 'أدلة الهجرة', href: '/guides' },
     { label: 'خدماتنا', href: '/services' },
-    { label: 'المحلل الذكي', href: '/#chatbot' },
-    { label: 'الأسئلة الشائعة', href: '#' },
 ]
 
 const supportLinks = [

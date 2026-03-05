@@ -32,7 +32,7 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
     }
 }
 
-export const revalidate = 60
+export const revalidate = 3600
 
 function formatArabicDate(date: Date): string {
     return date.toLocaleDateString('ar-MA', {
@@ -46,8 +46,31 @@ function formatArabicDate(date: Date): string {
 export default async function ArticlePage({ params }: Props) {
     const { slug } = await params
     let article = null
+    let relatedArticles: any[] = []
+
     try {
-        article = await prisma.article.findUnique({ where: { slug } })
+        article = await prisma.article.findUnique({
+            where: { slug },
+            include: { country: true, visaType: true }
+        })
+
+        if (article) {
+            // Find related articles sharing same country or visatype
+            const conditions: any[] = []
+            if (article.countryId) conditions.push({ countryId: article.countryId })
+            if (article.visaTypeId) conditions.push({ visaTypeId: article.visaTypeId })
+
+            if (conditions.length > 0) {
+                relatedArticles = await prisma.article.findMany({
+                    where: {
+                        OR: conditions,
+                        NOT: { id: article.id }
+                    },
+                    take: 3,
+                    orderBy: { publishedAt: 'desc' }
+                })
+            }
+        }
     } catch {
         // DB offline mode for build
     }
@@ -59,8 +82,27 @@ export default async function ArticlePage({ params }: Props) {
         article.imageUrl ||
         "https://lh3.googleusercontent.com/aida-public/AB6AXuAiFg58_cOZk8qrlWBEykxB0FF0cot8uOfATZRN4821UAImU4hhsXczTP0Njnjc5xkps7lzZkNjZhM7OpZ6aikIxLqU7k6SIvhSQLdk_SjIxjgqHgSj_mu7KpLi2aCmMI5YIEmLo02MwiVB9bjqCac_81fsCTG9cJbrq5BUHTDnqr8AJ0w75H105lT9Lw-Yp2JwUFoTOxCGewxPkH0yjhWsrs8tSXhsTU8t9tLg7RuibbBOtiRtwd3rul1c_TcCQIsXJ4gjpcAJwtY"
 
+    // JSON-LD for SEO
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        headline: article.title,
+        description: article.metaDescription || undefined,
+        image: displayImage,
+        datePublished: article.publishedAt.toISOString(),
+        dateModified: article.updatedAt ? article.updatedAt.toISOString() : article.publishedAt.toISOString(),
+        author: {
+            '@type': 'Organization',
+            name: 'MasarVisa',
+        },
+    }
+
     return (
         <div className="bg-background-light min-h-screen py-10 md:py-16">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="max-w-[800px] mx-auto px-6">
                 {/* Back link */}
                 <Link
@@ -127,25 +169,58 @@ export default async function ArticlePage({ params }: Props) {
                     </div>
                 </article>
 
-                {/* Footer CTA */}
+                {/* Dynamic Footer CTA */}
                 <div className="mt-8 bg-white p-8 rounded-2xl border shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6" style={{ borderColor: 'rgba(26,95,122,0.1)' }}>
                     <div className="flex items-center gap-4">
                         <div className="size-12 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(26,95,122,0.1)', color: '#1a5f7a' }}>
                             <span className="material-symbols-outlined text-[24px]">verified_user</span>
                         </div>
                         <div>
-                            <h4 className="font-bold text-slate-900">هل تحتاج للمساعدة في ملفك؟</h4>
-                            <p className="text-sm text-slate-500">استوديو الاستشارات متخصص في حالتك.</p>
+                            <h4 className="font-bold text-slate-900">
+                                {article.country ? `هل تحتاج للتقديم لـ ${article.country.name} قريباً؟` : 'هل تحتاج للمساعدة في ملفك؟'}
+                            </h4>
+                            <p className="text-sm text-slate-500">
+                                استوديو الاستشارات متخصص في {article.visaType ? article.visaType.name : 'حالتك'}.
+                            </p>
                         </div>
                     </div>
                     <Link
-                        href="/services"
+                        href={article.visaType ? `/services/visa-form` : `/services`}
                         className="flex h-12 px-8 items-center justify-center rounded-xl text-white font-bold transition-all hover:-translate-y-0.5 whitespace-nowrap"
                         style={{ backgroundColor: '#1a5f7a' }}
                     >
-                        تصفّح خدماتنا
+                        {article.visaType ? 'احجز استشارة الآن' : 'تصفّح خدماتنا'}
                     </Link>
                 </div>
+
+                {/* Related Articles Interlinking block */}
+                {relatedArticles.length > 0 && (
+                    <div className="mt-16 border-t pt-12 border-slate-200">
+                        <h3 className="text-2xl font-black text-slate-900 mb-8">مقالات وأخبار ذات صلة</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {relatedArticles.map((rel: any) => (
+                                <Link
+                                    key={rel.slug}
+                                    href={`/news/${rel.slug}`}
+                                    className="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm hover:shadow-md transition group block"
+                                >
+                                    <div className="aspect-video w-full rounded-xl bg-slate-100 mb-4 relative overflow-hidden">
+                                        <Image
+                                            src={rel.imageUrl || displayImage}
+                                            alt={rel.title}
+                                            fill
+                                            sizes="400px"
+                                            className="object-cover group-hover:scale-105 transition duration-500"
+                                        />
+                                    </div>
+                                    <h4 className="font-bold text-slate-900 text-base leading-tight group-hover:text-primary transition-colors">
+                                        {rel.title}
+                                    </h4>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     )

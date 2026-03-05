@@ -6,10 +6,10 @@ import { useState } from 'react'
 const navLinks = [
     { label: 'الرئيسية', href: '/' },
     { label: 'عن الشركة', href: '/about' },
+    { label: 'وجهات الهجرة', href: '/countries' },
+    { label: 'الأدلة الشاملة', href: '/guides' },
     { label: 'خدماتنا', href: '/services' },
-    { label: 'المحلل الذكي', href: '/#chatbot' },
     { label: 'المدونة', href: '/news' },
-    { label: 'اتصل بنا', href: '/contact' },
 ]
 
 export default function Navbar() {

@@ -23,6 +23,15 @@ model Article {
   metaDescription String?
   imageUrl        String?
   publishedAt     DateTime  @default(now())
+  
+  // Relations
+  countryId       String?
+  country         Country?  @relation(fields: [countryId], references: [id])
+  visaTypeId      String?
+  visaType        VisaType? @relation(fields: [visaTypeId], references: [id])
+  
+  keywords        String[]  // New: for SEO internal linking
+  readingTime     Int?      // New: Reading time in minutes
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
 }
@@ -47,4 +56,20 @@ model ServiceRequest {
   paymentMethod PaymentMethod
   status        RequestStatus @default(PENDING)
   createdAt     DateTime      @default(now())
+}
+
+model Country {
+  id          String    @id @default(cuid())
+  name        String    // e.g., "ألمانيا", "فرنسا"
+  slug        String    @unique // e.g., "germany"
+  flag        String?   // emoji or URL
+  continent   String?   // e.g., "Europe"
+  articles    Article[]
+}
+
+model VisaType {
+  id          String    @id @default(cuid())
+  name        String    // e.g., "Work Visa", "Student Visa"
+  slug        String    @unique
+  articles    Article[]
 }
